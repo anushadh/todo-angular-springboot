@@ -10,12 +10,13 @@ import { WelcomeDataService } from '../service/data/welcome-data.service';
 export class WelcomeComponent implements OnInit {
 
   welcomeMessage = 'Welcome '
+  welcomeMessageFromService:string
   name = ''
 
   //Activated Route
   constructor(
     private route: ActivatedRoute,
-    private welcomeDataService: WelcomeDataService
+    private service: WelcomeDataService
   ) { }
 
   ngOnInit() {
@@ -24,7 +25,15 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage() {
-    this.welcomeDataService.executeHelloWorldBeanService()
+    this.service.executeHelloWorldBeanService().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    );
+
+    console.log('Last Line of getWelcomeMessage');
+  }
+  handleSuccessfulResponse(response) {
+    //console.log(response);
+    this.welcomeMessageFromService = response.message
   }
 
 }
