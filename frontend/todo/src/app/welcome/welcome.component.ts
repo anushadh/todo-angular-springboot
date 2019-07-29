@@ -39,7 +39,7 @@ export class WelcomeComponent implements OnInit {
       error => this.handleErrorResponse(error) 
     );
 
-    console.log('Last Line of getWelcomeMessage');
+    console.log('Last Line of getWelcomeMessage' + this.name);
   }
 
   handleErrorResponse(error) {
