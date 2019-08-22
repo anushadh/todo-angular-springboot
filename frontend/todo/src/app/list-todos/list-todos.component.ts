@@ -73,7 +73,4 @@ export class ListTodosComponent implements OnInit {
     this.router.navigate(['todos', id])
   }
 
-  retrieveTodo(id) {
-    console.log(`Retrieve todo ${id}`)
-  }
 }
